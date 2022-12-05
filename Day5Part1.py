@@ -26,10 +26,7 @@ def main():
         moveamt = int(moves[1])
         movefrom = int(moves[3]) - 1
         moveto = int(moves[5]) - 1
-        print(moveamt, movefrom, moveto)
         while moveamt != 0:
-            print(stack[moveto])
-            print(stack[movefrom])
             stack[moveto].append(stack[movefrom][-1])
             stack[movefrom].pop()
             moveamt -= 1
