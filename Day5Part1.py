@@ -30,7 +30,7 @@ def main():
             stack[moveto].append(stack[movefrom][-1])
             stack[movefrom].pop()
             moveamt -= 1
-    print(stack[0][-1], stack[1][-1], stack[2][-1], stack[3][-1], stack[4][-1], stack[5][-1], stack[6][-1], stack[7][-1], stack[8][-1], )
+    print(stack[0][-1], stack[1][-1], stack[2][-1], stack[3][-1], stack[4][-1], stack[5][-1], stack[6][-1], stack[7][-1], stack[8][-1])
     infile.close()
 
 
