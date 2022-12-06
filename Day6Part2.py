@@ -6,15 +6,15 @@ def main():
     infile = open("DaySix.txt", "r")
     datastream = infile.read()
     while i < len(datastream):
-        if len(search) < 4:
+        if len(search) < 14:
             search.append(datastream[i])
             i += 1
         else:
             bite = 0
-            while bite < 4:
+            while bite < 14:
                 running += search.count(search[bite])
                 bite += 1
-            if running > 4:
+            if running > 14:
                 search.pop(0)
             else:
                 print("Found Start at:", i)
