@@ -5,7 +5,6 @@ def main():
     hy = 0
     tx = 0
     ty = 0
-    length = 1
     headloc = {(0, 0)}
     tailloc = {(0, 0)}
     infile = open("DayNine.txt", "r")
@@ -21,8 +20,8 @@ def main():
                 headloc.add((hx, hy))
                 print("Head Move: ", hx, hy)
                 taut = tx - hx
-                if (abs(taut)) > length:
-                    for t in range(abs(abs(taut) - length)):
+                if (abs(taut)) > 1:
+                    for t in range(abs(abs(taut) - 1)):
                         tx -= 1
                         if ty > hy:
                             ty -= 1
@@ -36,8 +35,8 @@ def main():
                 headloc.add((hx, hy))
                 print("Head Move: ", hx, hy)
                 taut = hx - tx
-                if (abs(taut)) > length:
-                    for t in range(abs(taut) - length):
+                if (abs(taut)) > 1:
+                    for t in range(abs(taut) - 1):
                         tx += 1
                         if ty > hy:
                             ty -= 1
@@ -51,8 +50,8 @@ def main():
                 headloc.add((hx, hy))
                 print("Head Move: ", hx, hy)
                 taut = hy - ty
-                if abs(taut) > length:
-                    for t in range(abs(taut) - length):
+                if abs(taut) > 1:
+                    for t in range(abs(taut) - 1):
                         ty += 1
                         if tx > hx:
                             tx -= 1
@@ -66,8 +65,8 @@ def main():
                 headloc.add((hx, hy))
                 print("Head Move: ", hx, hy)
                 taut = ty - hy
-                if (abs(taut)) > length:
-                    for t in range(abs(taut) - length):
+                if (abs(taut)) > 1:
+                    for t in range(abs(taut) - 1):
                         ty -= 1
                         if tx > hx:
                             tx -= 1
