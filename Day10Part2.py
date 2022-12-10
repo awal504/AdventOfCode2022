@@ -27,7 +27,7 @@ def main():
         if abs(cycle - register) <= 1:
             crtstring = crtstring + "#"
         else:
-            crtstring = crtstring.__add__(".")
+            crtstring = crtstring + "."
         if queue[i] != 0:
             register += queue[i]
         cycle += 1
