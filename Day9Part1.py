@@ -5,7 +5,6 @@ def main():
     hy = 0
     tx = 0
     ty = 0
-    headloc = {(0, 0)}
     tailloc = {(0, 0)}
     infile = open("DayNine.txt", "r")
     ropeinput = infile.read().splitlines()
@@ -17,8 +16,6 @@ def main():
         if direction == "L":
             for h in range(distance):
                 hx -= 1
-                headloc.add((hx, hy))
-                print("Head Move: ", hx, hy)
                 taut = tx - hx
                 if (abs(taut)) > 1:
                     for t in range(abs(abs(taut) - 1)):
@@ -28,12 +25,9 @@ def main():
                         elif ty < hy:
                             ty += 1
                         tailloc.add((tx, ty))
-                        print("Tail Move: ", tx, ty)
         elif direction == "R":
             for i in range(distance):
                 hx += 1
-                headloc.add((hx, hy))
-                print("Head Move: ", hx, hy)
                 taut = hx - tx
                 if (abs(taut)) > 1:
                     for t in range(abs(taut) - 1):
@@ -43,12 +37,9 @@ def main():
                         elif ty < hy:
                             ty += 1
                         tailloc.add((tx, ty))
-                        print("Tail Move: ", tx, ty)
         elif direction == "U":
             for i in range(distance):
                 hy += 1
-                headloc.add((hx, hy))
-                print("Head Move: ", hx, hy)
                 taut = hy - ty
                 if abs(taut) > 1:
                     for t in range(abs(taut) - 1):
@@ -58,12 +49,9 @@ def main():
                         elif tx < hx:
                             tx += 1
                         tailloc.add((tx, ty))
-                        print("Tail Move: ", tx, ty)
         elif direction == "D":
             for i in range(distance):
                 hy -= 1
-                headloc.add((hx, hy))
-                print("Head Move: ", hx, hy)
                 taut = ty - hy
                 if (abs(taut)) > 1:
                     for t in range(abs(taut) - 1):
@@ -73,7 +61,6 @@ def main():
                         elif tx < hx:
                             tx += 1
                         tailloc.add((tx, ty))
-                        print("Tail Move: ", tx, ty)
     count = 0
     for i in tailloc:
         count += 1
