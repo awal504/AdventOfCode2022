@@ -1,9 +1,10 @@
 # Advent of Code 2022 Day 11
+# Written with assistance from https://chasingdings.com/2022/12/11/advent-of-code-day-11-monkey-in-the-middle/
 
 def main():
     # Initialize Monkeys!
     class MonkeyNode:
-        def __init__(self, itemlist, operation, test, tmonkey, fmonkey, checked = None):
+        def __init__(self, itemlist, operation, test, tmonkey, fmonkey):
             self.itemlist = itemlist
             self.operation = operation
             self.test = test
@@ -33,12 +34,21 @@ def main():
             monkeylist.append(readmonkey(monkeyfilelist))
             monkeyfilelist.clear()
     monkeylist.append(readmonkey(monkeyfilelist))
-    # Start 20 rounds of monkey business
-    for b in range(20):
+
+    # Part 2 introduced me to some new number theory. Thanks, Tipa!
+    maxworry = 0
+    for a in monkeylist:
+        if maxworry == 0:
+            maxworry = a.test
+        else:
+            maxworry *= a.test
+
+    # Start 10000 rounds of monkey business
+    for b in range(10000):
         for s in monkeylist:
             for i in s.itemlist:
                 old = int(i)
-                new = int(eval(s.operation) / 3)
+                new = int(eval(s.operation)) % maxworry
                 if new % s.test == 0:
                     monkeylist[s.tmonkey].itemlist.append(new)
                 else:
@@ -48,7 +58,7 @@ def main():
     mbusiness = []
     for o in monkeylist:
         mbusiness.append(o.checked)
-    mbusiness.sort(reverse = True)
+    mbusiness.sort(reverse=True)
     print(mbusiness[0] * mbusiness[1])
 
 
